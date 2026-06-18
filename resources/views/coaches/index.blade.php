@@ -6,18 +6,20 @@
 </head>
 <body>
   <h2>currently available coaches</h2>
-  <p>{{ $greeting }}</p>
+
+  @if($greeting === "hello")
+    <p>hello to inside the if</p>
+  @else
+    <p>{{ $greeting }} from inside the else</p>
+  @endif
+
   <ul>
-    <li>
-      <a href="/coaches/{{ $coaches[0]["id"] }}">
-        {{ $coaches[0]["name"] }}
-      </a>
-    </li>
-    <li>
-      <a href="/coaches/{{ $coaches[1]["id"] }}">
-        {{ $coaches[1]["name"] }}
-      </a>
-    </li>
+    @foreach ($coaches as $coach)
+      <li>
+        <p>{{ $coach["name"] }}</p>
+        <a href="/coaches/{{ $coach["id"] }}">View Details</a>
+      </li>
+    @endforeach
   </ul>
   
 </body>

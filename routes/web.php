@@ -11,8 +11,8 @@ Route::get('/coaches', function () {
     ["name" => "John", "experies" => 14, "id" => 1],
     ["name" => "Damon", "experies" => 12, "id" => 1]
     ];
-    
-    return view('coaches.index', ["greeting" => "hello", "coaches" => $coaches]);
+
+    return view('coaches.index', ["greeting" => "howdy", "coaches" => $coaches]);
 });
 
 Route::get('/coaches/{id}', function ($id) {
