@@ -1,10 +1,4 @@
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coaches | Network</title>
-</head>
-<body>
+<x-layout>
   <h2>currently available coaches</h2>
 
   @if($greeting === "hello")
@@ -21,6 +15,4 @@
       </li>
     @endforeach
   </ul>
-  
-</body>
-</html>
+</x-layout>

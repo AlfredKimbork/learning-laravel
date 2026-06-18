@@ -15,6 +15,10 @@ Route::get('/coaches', function () {
     return view('coaches.index', ["greeting" => "howdy", "coaches" => $coaches]);
 });
 
+Route::get('/coaches/create', function () {
+    return view('coaches.create');
+});
+
 Route::get('/coaches/{id}', function ($id) {
-    return view('coaches/.show', ["id" => $id]);
+    return view('coaches.show', ["id" => $id]);
 });
