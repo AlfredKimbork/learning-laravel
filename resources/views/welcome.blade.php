@@ -7,6 +7,6 @@
 <body>
   <h1>Welcome to the Network</h1>
   <p>Click the button bellow to view the list of users</p>
-  <a href="/users" class="btn">Find Users!</a>
+  <a href="/coaches" class="btn">Find Users!</a>
 </body>
 </html>
