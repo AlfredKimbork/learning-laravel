@@ -11,4 +11,8 @@ class Coach extends Model
 
     /** @use HasFactory<\Database\Factories\CoachFactory> */
     use HasFactory;
+
+    public function agency() {
+        return $this->belongsTo(Agency::class);
+    }
 }

@@ -3,13 +3,12 @@
 namespace Database\Factories;
 
 use App\Models\Agency;
-use App\Models\Coach;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends Factory<Coach>
+ * @extends Factory<Agency>
  */
-class CoachFactory extends Factory
+class AgencyFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,10 +18,9 @@ class CoachFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'bio' => fake()->realText(500),
-            'experience' => fake()->numberBetween(0, 30),
-            'agency_id' => Agency::inRandomOrder()->first()->id,
+            'name' => fake()->company(),
+            'description' => fake()->paragraph(10),
+            'location' => fake()->city(),
         ];
     }
 }
