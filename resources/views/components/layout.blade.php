@@ -13,10 +13,10 @@
       <h1>Network</h1>
       <ul>
         <li>
-          <a href="/coaches">All coaches</a>
+          <a href="{{ route('coach.index') }}">All coaches</a>
         </li>
         <li>
-          <a href="/coaches/create">Create new coach</a>
+          <a href="{{ route('coach.create') }}">Create new coach</a>
         </li>
       </ul>
     </nav>
