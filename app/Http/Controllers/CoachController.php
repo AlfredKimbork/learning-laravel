@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CoachController extends Controller
 {
     public function index() {
-        $coaches = Coach::orderBy('created_at', 'desc')->get();
+        $coaches = Coach::orderBy('created_at', 'desc')->paginate(10);
 
         return view('coaches.index', ["greeting" => "howdy", "coaches" => $coaches]);
     }
