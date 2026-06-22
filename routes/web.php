@@ -1,24 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CoachController;
 
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/coaches', function () {
-    $coaches = [
-    ["name" => "John", "experience" => 14, "id" => 1],
-    ["name" => "Damon", "experience" => 8, "id" => 2]
-    ];
+Route::get('/coaches', [CoachController::class, 'index']);
 
-    return view('coaches.index', ["greeting" => "howdy", "coaches" => $coaches]);
-});
+Route::get('/coaches/create', [CoachController::class, 'create']);
 
-Route::get('/coaches/create', function () {
-    return view('coaches.create');
-});
-
-Route::get('/coaches/{id}', function ($id) {
-    return view('coaches.show', ["id" => $id]);
-});
+Route::get('/coaches/{id}', [CoachController::class, 'show']);
