@@ -17,21 +17,31 @@
     <nav>
       <h1><a href="{{ route('coaches.index') }}">Coach Network</a></h1>
       <ul>
-        <li>
-          <a href="{{ route('coaches.create') }}">Create new coach</a>
-        </li>
-        <li>
-          <a class="btn" href="{{ route('show.login') }}">Login</a>
-        </li>
-        <li>
-          <a class="btn" href="{{ route('show.register') }}">Register</a>
-        </li>
-        <li>
-          <form action="{{ route('logout') }}" method="POST" class="m-0">
-            @csrf
-            <button class="btn">Logout</button>
-          </form>
-        </li>
+
+        @guest
+          <li>
+            <a class="btn" href="{{ route('show.login') }}">Login</a>
+          </li>
+          <li>
+            <a class="btn" href="{{ route('show.register') }}">Register</a>
+          </li>
+        @endguest
+
+        @auth
+          <li class="border-r-2 border-gray-200 pr-2">
+            hi there, {{ Auth::user()->name }}
+          </li>
+          <li>
+            <a href="{{ route('coaches.create') }}">Create new coach</a>
+          </li>
+          <li>
+            <form action="{{ route('logout') }}" method="POST" class="m-0">
+              @csrf
+              <button class="btn">Logout</button>
+            </form>
+          </li>
+        @endauth
+
       </ul>
     </nav>
   </header>
