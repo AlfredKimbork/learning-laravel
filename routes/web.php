@@ -8,14 +8,19 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
-Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::post('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/coaches', [CoachController::class, 'index'])->name('coaches.index');
-Route::get('/coaches/create', [CoachController::class, 'create'])->name('coaches.create');
-Route::get('/coaches/{coach}', [CoachController::class, 'show'])->name('coaches.show');
-Route::post('/coaches', [CoachController::class, 'store'])->name('coaches.store');
-Route::delete('/coaches/{coach}', [CoachController::class, 'destroy'])->name('coaches.destroy');
+Route::middleware('guest')->controller(AuthController::class)->group(function() {
+    Route::get('/register', 'showRegister')->name('show.register');
+    Route::get('/login', 'showLogin')->name('show.login');
+    Route::post('/register', 'register')->name('register');
+    Route::post('/login', 'login')->name('login');
+});
+
+Route::middleware('auth')->controller(CoachController::class)->group(function() {
+    Route::get('/coaches', 'index')->name('coaches.index');
+    Route::get('/coaches/create', 'create')->name('coaches.create');
+    Route::get('/coaches/{coach}', 'show')->name('coaches.show');
+    Route::post('/coaches', 'store')->name('coaches.store');
+    Route::delete('/coaches/{coach}', 'destroy')->name('coaches.destroy');
+});
