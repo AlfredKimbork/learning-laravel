@@ -15,13 +15,16 @@
 
   <header>
     <nav>
-      <h1>Network</h1>
+      <h1><a href="{{ route('coaches.index') }}">Coach Network</a></h1>
       <ul>
         <li>
-          <a href="{{ route('coaches.index') }}">All coaches</a>
+          <a href="{{ route('coaches.create') }}">Create new coach</a>
         </li>
         <li>
-          <a href="{{ route('coaches.create') }}">Create new coach</a>
+          <a class="btn" href="{{ route('show.login') }}">Login</a>
+        </li>
+        <li>
+          <a class="btn" href="{{ route('show.register') }}">Register</a>
         </li>
       </ul>
     </nav>

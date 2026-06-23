@@ -1,11 +1,15 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CoachController;
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/register', [AuthController::class, 'showRegister'])->name('show.register');
+Route::get('/login', [AuthController::class, 'showLogin'])->name('show.login');
 
 Route::get('/coaches', [CoachController::class, 'index'])->name('coaches.index');
 Route::get('/coaches/create', [CoachController::class, 'create'])->name('coaches.create');
