@@ -14,4 +14,12 @@
     <p><strong>about the Agency:</strong></p>
     <p>{{ $coach->agency->description }}</p>
   </div>
+
+  <form action="{{ route('coaches.destroy', $coach->id) }}" method="POST">
+    @csrf
+    @method('DELETE')
+
+    <button type="submit" class="btn my-4">Delete Coach</button>
+  </form>
+
 </x-layout>
